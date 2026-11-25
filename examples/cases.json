@@ -1,0 +1,41 @@
+{
+  "cases": [
+    {
+      "id": "REVIEW-01",
+      "title": "初审与风险定位",
+      "priority": "P0",
+      "dimensions": ["D", "E"],
+      "checks": [
+        {"id": "output_type", "label": "交付结构化风险报告", "expected": "review_report", "kind": "critical"},
+        {"id": "payment_risk", "label": "定位第 2 条，指出付款缺少书面验收条件", "expected": "found", "kind": "required"},
+        {"id": "cap_risk", "label": "定位第 3 条，指出 10% 低于普通违约责任上限要求", "expected": "found", "kind": "required"},
+        {"id": "payment_edit", "label": "建议收到合规发票且完成书面验收后 30 日内付款", "expected": "meets_rule", "kind": "required"},
+        {"id": "confidentiality_cap", "label": "结合第 3、4 条指出保密责任受普通上限限制", "expected": "found", "kind": "bonus"}
+      ]
+    },
+    {
+      "id": "HANDOFF-01",
+      "title": "初审、谈判、版本比对与签署交接",
+      "priority": "P0",
+      "dimensions": ["B", "D"],
+      "checks": [
+        {"id": "redline_output", "label": "按请求交付可识别修改的合同红线稿", "expected": "redline", "kind": "required"},
+        {"id": "negotiation_output", "label": "按请求交付谈判准备卡", "expected": "negotiation_card", "kind": "required"},
+        {"id": "diff_delivery_date", "label": "差异表识别第 1 条更新后的交付日", "expected": "2027-03-24", "kind": "required"},
+        {"id": "signoff_version", "label": "签署行动清单引用用户确认的 v2", "expected": "v2", "kind": "critical"},
+        {"id": "signoff_delivery_date", "label": "行动清单沿用 v2 的交付日", "expected": "2027-03-24", "kind": "required"}
+      ]
+    },
+    {
+      "id": "MEMORY-01",
+      "title": "重开会话后的任务记忆",
+      "priority": "P0",
+      "dimensions": ["F"],
+      "checks": [
+        {"id": "restored_document", "label": "恢复历史任务中已保存的原合同关联", "expected": "v1", "kind": "critical"},
+        {"id": "restored_clause", "label": "识别追问指向第 2 条付款约定", "expected": "2", "kind": "required"},
+        {"id": "restored_payment_edit", "label": "修改建议保留合规发票、书面验收和 30 日付款期", "expected": "meets_rule", "kind": "required"}
+      ]
+    }
+  ]
+}
