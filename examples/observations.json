@@ -1,0 +1,33 @@
+{
+  "result_source": "synthetic_demo",
+  "observations": {
+    "REVIEW-01": {
+      "values": {
+        "output_type": "review_report",
+        "payment_risk": "found",
+        "cap_risk": "found",
+        "payment_edit": "meets_rule",
+        "confidentiality_cap": "not_found"
+      },
+      "evidence": "模拟初审指出第 2、3 条风险，建议在收票并书面验收后 30 日内付款。报告中没有标出第 4 条责任也受上限限制。"
+    },
+    "HANDOFF-01": {
+      "values": {
+        "redline_output": "redline",
+        "negotiation_output": "negotiation_card",
+        "diff_delivery_date": "2027-03-24",
+        "signoff_version": "v1",
+        "signoff_delivery_date": "2027-03-24"
+      },
+      "evidence": "模拟差异表正确记录新交付日，行动清单也使用了该日期，但清单的签署版本字段仍是 v1。"
+    },
+    "MEMORY-01": {
+      "values": {
+        "restored_document": "v1",
+        "restored_clause": "2",
+        "restored_payment_edit": "meets_rule"
+      },
+      "evidence": "模拟重开会话后找回原稿和第 2 条，恢复合规发票、书面验收和 30 日付款期三个条件。"
+    }
+  }
+}
